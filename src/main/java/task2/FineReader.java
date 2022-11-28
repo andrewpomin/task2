@@ -50,7 +50,7 @@ public class FineReader {
                 //While file is not finished to read - read all file
                 while (true) {
 
-                    //Get each JSON object
+                    //Get each JSON object as string
                     String jsonString = readJsonObject(scanner);
 
                     //If file was ended - break loop
@@ -58,22 +58,8 @@ public class FineReader {
                         break;
                     }
 
-                    //Get JSON object
-                    JSONObject jsonObject = new JSONObject(jsonString);
-
-                    String type = jsonObject.getString("type"); //Get type of fine
-                    double amount = jsonObject.getDouble("fine_amount"); //Get amount of fine
-
-                    //Create temporary amount
-                    double currentAmount = 0.0;
-
-                    //If map is not empty and have such type of fine - get total amount of fine
-                    if ((!fineMap.isEmpty()) && fineMap.containsKey(type)) {
-                        currentAmount = fineMap.get(type); //Get current total amount of fine
-                    }
-
-                    //Write fine and its total amount in the map
-                    fineMap.put(type, currentAmount + amount);
+                    //Read object and get fine with its amount
+                    getFineWithAmount(jsonString);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -97,7 +83,7 @@ public class FineReader {
         writeStatistics();
     }
 
-    //Function to read each JSON-object
+    //Function to get JSON-object as string
     private static String readJsonObject(Scanner scanner) {
 
         //Create string builder for JSON string
@@ -125,6 +111,26 @@ public class FineReader {
 
             //Return JSON string
             return String.valueOf(jsonString);
+    }
+
+    //Function to read JSON object and get info about fine
+    private static void getFineWithAmount(String jsonString) {
+        //Get JSON object
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+        String type = jsonObject.getString("type"); //Get type of fine
+        double amount = jsonObject.getDouble("fine_amount"); //Get amount of fine
+
+        //Create temporary amount
+        double currentAmount = 0.0;
+
+        //If map is not empty and have such type of fine - get total amount of fine
+        if ((!fineMap.isEmpty()) && fineMap.containsKey(type)) {
+            currentAmount = fineMap.get(type); //Get current total amount of fine
+        }
+
+        //Write fine and its total amount in the map
+        fineMap.put(type, currentAmount + amount);
     }
 
     //Function to write fines statistics in XML-file

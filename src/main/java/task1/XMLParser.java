@@ -1,6 +1,10 @@
 package task1;
 
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -45,27 +49,7 @@ public class XMLParser {
 
             //Write all elements of persons
             for (int i = 0; i < nodeList.getLength(); i++) {
-                Node node = nodeList.item(i); //Create each node
-
-                //If node is an element
-                if (node.getNodeType() == Node.ELEMENT_NODE) {
-
-                    Element element = (Element) node; //Create element from node
-
-
-                    String surname = element.getAttribute("surname"); //Get surname
-                    String name = element.getAttribute("name") + " " + surname; //Get name
-
-                    element.removeAttribute("surname"); //Remove surname from tag "person"
-
-                    element.removeAttribute("name"); //Remove name from tag "person"
-                    element.setAttribute("name", name); //Set new attribute name in tag "person"
-
-                    NamedNodeMap attributes = element.getAttributes(); //Get list of attributes
-
-                    //Write each tag in "persons"
-                    writeTag(fw, attributes);
-                }
+                writeElement(nodeList, i, fw); //Write each element
             }
 
             //Write end tag
@@ -84,6 +68,31 @@ public class XMLParser {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    //Function to write element to file copy
+    private static void writeElement(NodeList nodeList, int i, FileWriter fw) {
+        Node node = nodeList.item(i); //Create each node
+
+        //If node is an element
+        if (node.getNodeType() == Node.ELEMENT_NODE) {
+
+            Element element = (Element) node; //Create element from node
+
+
+            String surname = element.getAttribute("surname"); //Get surname
+            String name = element.getAttribute("name") + " " + surname; //Get name
+
+            element.removeAttribute("surname"); //Remove surname from tag "person"
+
+            element.removeAttribute("name"); //Remove name from tag "person"
+            element.setAttribute("name", name); //Set new attribute name in tag "person"
+
+            NamedNodeMap attributes = element.getAttributes(); //Get list of attributes
+
+            //Write each tag in "persons"
+            writeTag(fw, attributes);
         }
     }
 
