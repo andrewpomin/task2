@@ -1,0 +1,72 @@
+[
+  {
+    "date_time": "2020-06-01 15:39:03",
+    "first_name": "Ivan",
+    "last_name": "Kotliarevskyi",
+    "type": "SPEEDING",
+    "fine_amount": 370.00
+  },
+  {
+    "date_time": "2020-06-03 16:49:23",
+    "first_name": "Taras",
+    "last_name": "Shevchenko",
+    "type": "PARKING",
+    "fine_amount": 300.00
+  },
+  {
+    "date_time": "2020-06-07 10:10:49",
+    "first_name": "Lesia",
+    "last_name": "Ukrainka",
+    "type": "SPEEDING",
+    "fine_amount": 410.00
+  },
+  {
+    "date_time": "2020-06-12 18:19:56",
+    "first_name": "Ivan",
+    "last_name": "Bahrianyi",
+    "type": "PARKING",
+    "fine_amount": 250.00
+  },
+  {
+    "date_time": "2020-06-15 22:29:15",
+    "first_name": "Olha",
+    "last_name": "Kobylianska",
+    "type": "NOT FASTENED BY SEAT BELT",
+    "fine_amount": 230.00
+  },
+  {
+    "date_time": "2020-06-16 08:02:05",
+    "first_name": "Vasyl",
+    "last_name": "Symonenko",
+    "type": "NOT FASTENED BY SEAT BELT",
+    "fine_amount": 230.00
+  },
+  {
+    "date_time": "2020-06-21 12:30:01",
+    "first_name": "Vasyl",
+    "last_name": "Stus",
+    "type": "SPEEDING",
+    "fine_amount": 350.00
+  },
+  {
+    "date_time": "2020-06-23 16:01:15",
+    "first_name": "Lina",
+    "last_name": "Kostenko",
+    "type": "PARKING",
+    "fine_amount": 200.00
+  },
+  {
+    "date_time": "2020-06-25 09:25:25",
+    "first_name": "Panteleimon",
+    "last_name": "Kulish",
+    "type": "PARKING",
+    "fine_amount": 245.00
+  },
+  {
+    "date_time": "2020-06-30 14:55:11",
+    "first_name": "Mykhailo",
+    "last_name": "Starytskyi",
+    "type": "NOT FASTENED BY SEAT BELT",
+    "fine_amount": 230.00
+  }
+]
